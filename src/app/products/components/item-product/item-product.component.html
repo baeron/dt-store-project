@@ -1,0 +1,18 @@
+<div class="card" style="width: 18rem;">
+  <a
+    routerLink="/product_list/category/{{ item_product.categoryId }}/product/{{
+      item_product.productId
+    }}"
+    style="color: #FFFFFF; text-decoration: none;"
+  >
+    <img
+      class="card-img-top"
+      src="https://images.ua.prom.st/652301782_w269_h200_saeco_incanto_de_luxe_.jpg"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ item_product.categoryName }}</h5>
+      <p class="card-text">{{ item_product.categoryDescription }}</p>
+    </div>
+  </a>
+</div>

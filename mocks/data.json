@@ -1,0 +1,66 @@
+{
+  "categories": [
+    {
+      "name": "first",
+      "products": [
+        {
+          "id": 11,
+          "name": "first-first"
+        },
+        {
+          "id": 12,
+          "name": "first-second"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "second",
+      "products": [
+        {
+          "id": 11,
+          "name": "second-first"
+        },
+        {
+          "id": 12,
+          "name": "second-second"
+        }
+      ],
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "categoryName": "first",
+      "categoryId": 1,
+      "id": 11,
+      "name": "first-first"
+    },
+    {
+      "categoryName": "first",
+      "categoryId": 1,
+      "id": 12,
+      "name": "first-second"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@admin.com",
+      "password": "123admin",
+      "token": "adminToken"
+    },
+    {
+      "id": 111,
+      "email": "employee@employee.com",
+      "password": "employee123",
+      "token": "firstToken"
+    },
+    {
+      "id": 222,
+      "email": "user@user.com",
+      "password": "user123",
+      "token": "userToken"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+<!--
+<div>
+  <div class="card light-blue">
+    <div class="view overlay hm-blue-slight">
+      <img
+        src="https://images.ua.prom.st/113769015_w200_h180_301_large.jpg"
+        class="img-fluid"
+        alt="Card image cap"
+      />
+      <a href="#!"> <div class="mask"></div> </a>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title white-text py-3">КОФЕМАШИНЫ</h4>
+      <p class="card-text white-text">
+        Lorem ipsum dolor sit amet, consectetur sunt elit. Impedit iste
+        perspiciatis earum voluptatem ad possimus itaque, eum aspernatur,
+        nostrum dignissimos beatae id in illum accusantium adipisicing suscipit
+        sunt doloremque.
+      </p>
+      <a href="#" class="btn btn-warning my-3">Read more</a>
+    </div>
+  </div>
+</div>
+-->
+<div class="card" style="width: 18rem;">
+  <img
+    class="card-img-top"
+    src="https://images.ua.prom.st/113769015_w200_h180_301_large.jpg"
+    alt="Card image cap"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ item_category.categoryName }}</h5>
+    <p class="card-text">{{ item_category.categoryDescription }}</p>
+    <a
+      [routerLink]="['category', item_category.categoryId]"
+      class="btn btn-primary"
+      >Go somewhere</a
+    >
+  </div>
+</div>

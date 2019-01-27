@@ -1,3 +1,37 @@
-<p>
-  sign-in works!
-</p>
+<section class="signup">
+  <div class="container">
+    <div class="signup-content">
+      <form
+        [formGroup]="loginForm"
+        novalidate
+        (ngSubmit)="onSubmit()"
+        class="signup-form"
+      >
+        <h2 class="form-title">Login Account</h2>
+        <div class="form-group">
+          <input
+            id="userEmail"
+            type="email"
+            class="form-input"
+            formControlName="userEmail"
+            placeholder="Your Email"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            id="userPass"
+            type="password"
+            class="form-input"
+            formControlName="userPass"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-group">
+          <button class="form-submit" [disabled]="!loginForm.valid">
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

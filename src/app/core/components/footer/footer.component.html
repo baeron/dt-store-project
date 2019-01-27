@@ -1,0 +1,12 @@
+<div>
+  <picture>
+    <source media="(min-width: 1200px)" [srcset]="footerImage" />
+    <source [srcset]="footerImage" />
+    <img
+      class="d-block img-fluid"
+      [src]="footerImage"
+      alt="footerImage"
+      sr-only="footerImage"
+    />
+  </picture>
+</div>

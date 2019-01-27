@@ -1,0 +1,42 @@
+<div id="header" class="header-scrolled">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ng-template [ngIf]="isStaticTabsShow">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" *ngFor="let staticTab of staticTabs">
+            <a class="nav-link" [routerLink]="[staticTab.url]">
+              {{ staticTab.name }}
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isAuthTabShow">
+            <a class="nav-link" [routerLink]="[authTab.url]">
+              {{ authTab.name }}
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isProfileShow">
+            <a class="nav-link" [routerLink]="[profileTab.url]">
+              {{ profileTab.name }}
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isRegisterTabShow">
+            <a class="nav-link" [routerLink]="[registerTab.url]">
+              {{ registerTab.name }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+  </nav>
+</div>

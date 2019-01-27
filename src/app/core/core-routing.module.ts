@@ -1,7 +1,13 @@
 import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from "@angular/router";
 
-import * as fromContainers from "./containers";
+import * as fromcontainers from "./containers";
+
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
+import { RoleGuardService } from "./services/role-guard.service";
+import { AuthGuardService } from "./services/auth-guard.service";
 
 const CORE_ROUTERS: Routes = [
   {
@@ -11,19 +17,19 @@ const CORE_ROUTERS: Routes = [
   },
   {
     path: "home",
-    component: fromContainers.HomeComponent
+    component: fromcontainers.HomeComponent
   },
   {
     path: "sign-up",
-    component: fromContainers.SignUpComponent
+    component: fromcontainers.SignUpComponent
   },
   {
     path: "sign-in",
-    component: fromContainers.SignInComponent
+    component: fromcontainers.SignInComponent
   },
   {
     path: "admin",
-    canActivate: [""],
+    canActivate: [RoleGuardService],
     loadChildren: "../admin/admin.module#AdminModule"
   },
   {
@@ -32,13 +38,25 @@ const CORE_ROUTERS: Routes = [
     loadChildren: "../employee/employee.module#EmployeeModule"
   },
   {
+    path: "profile",
+    canActivate: [],
+    component: fromcontainers.ProfileComponent
+  },
+  {
     path: "product_list",
     loadChildren: "../products/products.module#ProductsModule"
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(CORE_ROUTERS)],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(CORE_ROUTERS)
+  ],
+  declarations: [...fromcontainers.coreContainers],
+  providers: [AuthGuardService],
   exports: [RouterModule]
 })
 export class CoreRoutingModule {}

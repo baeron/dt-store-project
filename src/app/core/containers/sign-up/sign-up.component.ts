@@ -1,4 +1,13 @@
 import { Component, OnInit } from "@angular/core";
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators,
+  AbstractControl
+} from "@angular/forms";
+import { AuthenticationService } from "../../services/authentication.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-sign-up",
@@ -6,7 +15,40 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./sign-up.component.scss"]
 })
 export class SignUpComponent implements OnInit {
-  constructor() {}
+  registerForm: FormGroup;
+  submitted = false;
+  data: any;
+  error: any;
 
-  ngOnInit() {}
+  constructor(
+    private router: Router,
+    private signUpForm: FormBuilder,
+    private authService: AuthenticationService
+  ) {}
+
+  ngOnInit() {
+    this.registerForm = this.signUpForm.group({
+      userName: [""],
+      userEmail: [""],
+      userPass: [""]
+    });
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
+    const user = this.registerForm.value;
+    user.token = "user_token";
+    this.authService.registerUser(user).subscribe(
+      data => {
+        this.data = data;
+        this.router.navigate(["/product_list"]);
+      },
+      error => {
+        (this.error = <any>error), this.router.navigate(["/"]);
+      }
+    );
+  }
 }
