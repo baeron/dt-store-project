@@ -34,13 +34,15 @@
       "categoryName": "first",
       "categoryId": 1,
       "id": 11,
-      "name": "first-first"
+      "name": "first-first-last",
+      "price": 11.11
     },
     {
       "categoryName": "first",
       "categoryId": 1,
       "id": 12,
-      "name": "first-second"
+      "name": "first-second",
+      "price": 12.12
     }
   ],
   "users": [
@@ -61,6 +63,124 @@
       "email": "user@user.com",
       "password": "user123",
       "token": "userToken"
+    }
+  ],
+  "sales": [
+    {
+      "userId": 222,
+      "userEmail": "user@user.com",
+      "shoppingCart": {
+        "totalMoneySpend": 111,
+        "totalProductBougth": 3,
+        "products": [
+          {
+            "categoryName": "first",
+            "categoryId": 1,
+            "id": 11,
+            "name": "first-first",
+            "price": 11.11,
+            "dateSale": "2012/04/30 10:14:23"
+          },
+          {
+            "categoryName": "first",
+            "categoryId": 1,
+            "id": 12,
+            "name": "first-second",
+            "price": 12.12,
+            "dateSale": "2012/04/30 10:14:23"
+          },
+          {
+            "categoryName": "first",
+            "categoryId": 1,
+            "id": 12,
+            "name": "first-second",
+            "price": 12.12,
+            "dateSale": "2012/04/30 10:14:23"
+          }
+        ]
+      }
+    },
+    {
+      "userId": 221,
+      "userEmail": "user1@user.com",
+      "shoppingCart": {
+        "totalMoneySpend": 111,
+        "totalProductBougth": 2,
+        "products": [
+          {
+            "categoryName": "first",
+            "categoryId": 1,
+            "id": 11,
+            "name": "first-first",
+            "price": 11.11,
+            "dateSale": "2012/04/30 10:14:23"
+          },
+          {
+            "categoryName": "second",
+            "categoryId": 2,
+            "id": 12,
+            "name": "first-second",
+            "price": 12.12,
+            "dateSale": "2012/04/30 10:14:23"
+          }
+        ]
+      }
+    }
+  ],
+  "orders": [
+    {
+      "id": 999,
+      "userId": 221,
+      "userEmail": "user1@user.com",
+      "orderId": 999,
+      "status": "fulfilled",
+      "totalPrice": 23.23,
+      "totalItems": 2,
+      "userOrders": [
+        {
+          "categoryName": "first",
+          "categoryId": 1,
+          "id": 11,
+          "name": "first-first",
+          "price": 11.11,
+          "dateSale": "2012/04/30 10:14:23"
+        },
+        {
+          "categoryName": "second",
+          "categoryId": 2,
+          "id": 12,
+          "name": "first-second",
+          "price": 12.12,
+          "dateSale": "2012/04/30 10:14:23"
+        }
+      ]
+    },
+    {
+      "id": 888,
+      "userId": 222,
+      "userEmail": "user@user.com",
+      "orderId": 888,
+      "status": "fulfilled",
+      "totalPrice": 23.23,
+      "totalItems": 2,
+      "userOrders": [
+        {
+          "categoryName": "first",
+          "categoryId": 1,
+          "id": 11,
+          "name": "first-first",
+          "price": 11.11,
+          "dateSale": "2012/04/30 10:14:23"
+        },
+        {
+          "categoryName": "second",
+          "categoryId": 2,
+          "id": 12,
+          "name": "first-second",
+          "price": 12.12,
+          "dateSale": "2012/04/30 10:14:23"
+        }
+      ]
     }
   ]
 }

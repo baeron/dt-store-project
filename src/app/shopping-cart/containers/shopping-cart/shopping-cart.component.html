@@ -1,0 +1,13 @@
+<div style="margin-top: 100px">
+  <p>You have {{ shoppingCartItems.length }} items in your bag</p>
+  <div *ngFor="let item of shoppingCartItems">
+    <div>
+      <div>{{ item.name }}</div>
+      <div>{{ item.price }}</div>
+      <div>{{ item.categoryName }}</div>
+    </div>
+
+    <button class="remove-item" (click)="removeItem(item)">Remove</button>
+  </div>
+  <p>Total: {{ getTotal() | async }}</p>
+</div>

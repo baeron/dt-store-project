@@ -4,8 +4,10 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, pipe, of } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { Category } from "../models/category";
+import { Product } from "../models/product.model";
 
 const CATEGORY = "http://localhost:3000/categories";
+const ITEM_PRODUCT = " http://localhost:3000/products/";
 
 @Injectable({
   providedIn: "root"
@@ -17,6 +19,15 @@ export class CategoryService {
     return this.http.get<Category[]>(CATEGORY).pipe(
       tap(_ => console.log("fetched categories")),
       catchError(this.handleError("getCategories", []))
+    );
+  }
+
+  getProductById(id: string): Observable<Product> {
+    const str = ITEM_PRODUCT + id;
+    console.log(str);
+    return this.http.get<Product>(ITEM_PRODUCT + id).pipe(
+      tap(_ => console.log("fetch item product")),
+      catchError(this.handleError("getProductById"))
     );
   }
 

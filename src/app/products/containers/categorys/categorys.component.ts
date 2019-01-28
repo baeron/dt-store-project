@@ -7,6 +7,7 @@ import { CategoryService } from "../../services/category.service";
   styleUrls: ["./categorys.component.scss"]
 })
 export class CategorysComponent implements OnInit {
+  // FIXME: cast it to type
   categories: any;
 
   constructor(private categoriesService: CategoryService) {}

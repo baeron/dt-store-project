@@ -1,0 +1,68 @@
+<!-- FIXME: move inline CSS to separate file -->
+<div style="margin-top: 110px" *ngIf="order">
+  <div class="row justify-content-center align-items-center">
+    <span> Item order full info </span>
+  </div>
+  <div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-4"><span>User Email</span></div>
+      <div class="col-6">
+        <span> {{ order.userEmail }} </span>
+      </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+      <div class="col-4"><span>Status</span></div>
+      <div class="col-6">
+        <span
+          [ngClass]="order.status === 'fulfilled' ? 'fulfilled' : 'pending'"
+          >{{ order.status }}</span
+        >
+      </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+      <div class="col-4"><span>Total price</span></div>
+      <div class="col-6">
+        <span>{{ order.totalPrice }}</span>
+      </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+      <div class="col-4"><span>Total items</span></div>
+      <div class="col-6">
+        <span>{{ order.totalItems }}</span>
+      </div>
+    </div>
+    <!---->
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category name</th>
+            <th scope="col">Product name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Sold date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- FIXME: add ASYNK PIPE in the end -->
+          <tr *ngFor="let itemOrder of order.userOrders; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ itemOrder.categoryName }}</td>
+            <td>{{ itemOrder.name }}</td>
+            <td>{{ itemOrder.price }}</td>
+            <td>{{ itemOrder.dateSale }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!---->
+    <div class="d-flex justify-content-center">
+      <button type="button" class="btn btn-primary" (click)="isOrderComplete()">
+        Change order status to completed
+      </button>
+    </div>
+  </div>
+</div>

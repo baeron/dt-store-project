@@ -16,4 +16,5 @@ export class HeaderComponent {
   ];
   authTab: Tab = { name: "Sign In", url: "/sign-in" };
   registerTab: Tab = { name: "Sign Up", url: "/sign-up" };
+  shoppingCartTab: Tab = { name: "Shopping Cart", url: "/shoping_cart" };
 }

@@ -1,3 +1,40 @@
-<p>
-  admin-panel works!
-</p>
+<!-- FIXME: drop inline style -->
+<!-- TODO: data char library https://valor-software.com/ng2-charts/ -->
+<div style="margin-top: 110px;">
+  <!--
+  <p>Sales</p>
+  <pre>{{ sales | json }}</pre>
+
+  <div *ngFor="let itemSale of sales"><div></div></div>
+-->
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">User email</th>
+          <th scope="col">Total money spend</th>
+          <th scope="col">Total product bougth</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let itemSale of sales; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ itemSale.userEmail }}</td>
+          <td>{{ itemSale.shoppingCart.totalMoneySpend }}</td>
+          <td>{{ itemSale.shoppingCart.totalProductBougth }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="display: block">
+    <canvas
+      baseChart
+      [data]="doughnutChartData"
+      [labels]="doughnutChartLabels"
+      [chartType]="doughnutChartType"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"
+    ></canvas>
+  </div>
+</div>

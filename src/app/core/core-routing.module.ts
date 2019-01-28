@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from "@angular/router";
 
-import * as fromcontainers from "./containers";
+import * as fromContainers from "./containers";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
@@ -17,15 +17,15 @@ const CORE_ROUTERS: Routes = [
   },
   {
     path: "home",
-    component: fromcontainers.HomeComponent
+    component: fromContainers.HomeComponent
   },
   {
     path: "sign-up",
-    component: fromcontainers.SignUpComponent
+    component: fromContainers.SignUpComponent
   },
   {
     path: "sign-in",
-    component: fromcontainers.SignInComponent
+    component: fromContainers.SignInComponent
   },
   {
     path: "admin",
@@ -34,17 +34,21 @@ const CORE_ROUTERS: Routes = [
   },
   {
     path: "employee",
-    canActivate: [],
+    canActivate: [RoleGuardService],
     loadChildren: "../employee/employee.module#EmployeeModule"
   },
   {
     path: "profile",
     canActivate: [],
-    component: fromcontainers.ProfileComponent
+    component: fromContainers.ProfileComponent
   },
   {
     path: "product_list",
     loadChildren: "../products/products.module#ProductsModule"
+  },
+  {
+    path: "shoping_cart",
+    loadChildren: "../shopping-cart/shopping-cart.module#ShoppingCartModule"
   }
 ];
 
@@ -55,7 +59,7 @@ const CORE_ROUTERS: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(CORE_ROUTERS)
   ],
-  declarations: [...fromcontainers.coreContainers],
+  declarations: [...fromContainers.coreContainers],
   providers: [AuthGuardService],
   exports: [RouterModule]
 })

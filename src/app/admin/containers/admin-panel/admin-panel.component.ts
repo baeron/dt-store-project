@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { SalesService } from "../../servises/sales.service";
 
 @Component({
   selector: "app-admin-panel",
@@ -6,9 +7,27 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./admin-panel.component.scss"]
 })
 export class AdminPanelComponent implements OnInit {
-  constructor() {
-    debugger;
+  // FIXME cast too item type
+  sales: any;
+  public doughnutChartLabels: string[] = [
+    "Download Sales",
+    "In-Store Sales",
+    "Mail-Order Sales"
+  ];
+  public doughnutChartData: number[] = [350, 450, 100];
+  public doughnutChartType = "doughnut";
+
+  constructor(private salesService: SalesService) {}
+
+  ngOnInit() {
+    this.getSales();
   }
 
-  ngOnInit() {}
+  getSales() {
+    this.salesService.getAllSales().subscribe(salesList => {
+      this.sales = salesList;
+      debugger;
+      console.log(this.sales);
+    });
+  }
 }

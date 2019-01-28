@@ -62,7 +62,7 @@ export class AuthenticationService {
       );
       // FIXME: change when we will have real backend
       return this.http.get(authenticateUrl + "/1").pipe(
-        tap(_ => console.log("fetched employee data")),
+        tap(_ => console.log("fetched admin data")),
         catchError(this.handleError)
       );
     } else {
