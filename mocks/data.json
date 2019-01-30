@@ -1,7 +1,10 @@
 {
   "categories": [
     {
-      "name": "first",
+      "categoryName": "Coffee machines",
+      "categoryShortDescroption": "Find your coffee machines",
+      "categoryDescroption": "All the latest models and great deals on Coffee machines are on our Coffe Shop",
+      "backgroundImage": "https://cdnimg.webstaurantstore.com/uploads/seo_category/2016/4/hot_beverage_equipment.jpg",
       "products": [
         {
           "id": 11,
@@ -15,7 +18,21 @@
       "id": 1
     },
     {
-      "name": "second",
+      "categoryName": "Hot Beverage",
+      "categoryShortDescroption": "Coffee, tea and etc",
+      "categoryDescroption": "Expand your drink menu using these hot beverages and mixes.",
+      "backgroundImage": "https://cdnimg.webstaurantstore.com/uploads/seo_category/2016/4/cold_beverages_and_beverage_mixes.jpg)",
+      "products": [
+        { "id": 11, "name": "second-first" },
+        { "id": 12, "name": "second-second" }
+      ],
+      "id": 2
+    },
+    {
+      "categoryName": "Cold Beverages",
+      "categoryShortDescroption": "Soda, bottled water and etc.",
+      "categoryDescroption": "Choose from fruit concentrates, syrups, and even water.",
+      "backgroundImage": "https://cdnimg.webstaurantstore.com/uploads/seo_category/2016/4/to_go_supplies.jpg)",
       "products": [
         {
           "id": 11,
@@ -26,7 +43,24 @@
           "name": "second-second"
         }
       ],
-      "id": 2
+      "id": 3
+    },
+    {
+      "categoryName": "To-Go Supplies",
+      "categoryShortDescroption": "Coffee cup, stirrers straws and etc.",
+      "categoryDescroption": "Stock up on items like napkins, cups, lids, and stirrers.",
+      "backgroundImage": "https://cdnimg.webstaurantstore.com/uploads/seo_category/2016/4/to_go_supplies.jpg)",
+      "products": [
+        {
+          "id": 11,
+          "name": "second-first"
+        },
+        {
+          "id": 12,
+          "name": "second-second"
+        }
+      ],
+      "id": 4
     }
   ],
   "products": [

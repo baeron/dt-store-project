@@ -1,11 +1,50 @@
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.pb-60 {
+  padding-bottom: 60px;
+}
+
+.gallery-area {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.gallery-area-long {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
 .banner {
   background-size: cover;
   height: 920px !important;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
   .banner {
     height: 920px !important;
+  }
+
+  .gallery-area-long {
+    height: 350px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  .gallery-area-long {
+    margin-bottom: 30px;
+    width: 100%;
+    height: auto;
   }
 }
 

@@ -1,6 +1,16 @@
 <div id="header" class="header-scrolled">
   <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" routerLink="/">
+      <picture>
+        <source [srcset]="companiIcon" />
+        <img
+          class="d-block img-fluid"
+          [src]="companiIcon"
+          alt="companyLogo"
+          sr-only="AMPX"
+        />
+      </picture>
+    </a>
     <button
       class="navbar-toggler"
       type="button"
@@ -38,6 +48,9 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="[shoppingCartTab.url]">
               {{ shoppingCartTab.name }}
+              <span class="badge badge-light">{{
+                (shoppingCartItems$ | async).length
+              }}</span>
             </a>
           </li>
         </ul>

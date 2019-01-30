@@ -6,10 +6,10 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  headerImage: string;
+  placeholder_img: string;
   constructor() {}
 
   ngOnInit() {
-    this.headerImage = "../";
+    this.placeholder_img = "../../../assets/placeholder/placeholder.jpg";
   }
 }

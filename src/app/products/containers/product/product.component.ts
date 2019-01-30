@@ -13,6 +13,8 @@ import { CartService } from "../../services/cart.service";
 export class ProductComponent implements OnInit {
   public product: Product = {};
   productId: string;
+  //
+  productImg: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +26,8 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.getItemProduct(this.productId);
+    this.productImg =
+      "https://cdnimg.webstaurantstore.com/images/products/xxl/217037/949912.jpg";
   }
 
   getItemProduct(Id: string) {

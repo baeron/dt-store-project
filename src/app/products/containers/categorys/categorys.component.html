@@ -1,7 +1,113 @@
+<!--
 <div>
   <div class="d-flex justify-content-around flex-wrap">
     <div *ngFor="let category of categories">
       <app-item-category [item_category]="category"></app-item-category>
     </div>
+  </div>
+</div>
+-->
+<div>
+  <div
+    class="banner"
+    [style.backgroundImage]="
+      'url(../../../../assets/header/header-small-bg.png)'
+    "
+  ></div>
+  <div class="d-flex justify-content-center">
+    <h2>Coffee Shop category list</h2>
+  </div>
+  <div class="wrapper">
+    <div class="cols">
+      <div *ngFor="let itemCategory of categories">
+        <app-item-category [category]="itemCategory"></app-item-category>
+      </div>
+      <!--
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container">
+          <a [routerLink]="['category', 1]">
+            <div
+              class="front"
+              style="background-image: url(https://cdnimg.webstaurantstore.com/uploads/seo_category/2016/4/hot_beverage_equipment.jpg)"
+            >
+              <div class="inner">
+                <p>Coffee machines</p>
+                <span>Find your coffee machines</span>
+              </div>
+            </div>
+            <div class="back">
+              <div class="inner">
+                <p>
+                  All the latest models and great deals on Coffee machines are
+                  on our Coffe Shop
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container">
+          <a [routerLink]="['category', 2]">
+            <div
+              class="front"
+              style="url(https://cdnimg.webstaurantstore.com/uploads/seo_category/2016/4/hot_beverages_and_beverage_mixes.jpg)"
+            >
+              <div class="inner">
+                <p>Hot Beverages</p>
+                <span>Coffee, tea and etc </span>
+              </div>
+            </div>
+            <div class="back">
+              <div class="inner">
+                <p>
+                  Expand your drink menu using these hot beverages and mixes.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container">
+          <a [routerLink]="['category', 3]">
+            <div
+              class="front"
+              style="background-image: url(https://cdnimg.webstaurantstore.com/uploads/seo_category/2016/4/cold_beverages_and_beverage_mixes.jpg)"
+            >
+              <div class="inner">
+                <p>Cold Beverages</p>
+                <span>Soda, bottled water and etc.</span>
+              </div>
+            </div>
+            <div class="back">
+              <div class="inner">
+                <p>Choose from fruit concentrates, syrups, and even water.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container">
+          <a [routerLink]="['category', 4]">
+            <div
+              class="front"
+              style="background-image: url(https://cdnimg.webstaurantstore.com/uploads/seo_category/2016/4/to_go_supplies.jpg)"
+            >
+              <div class="inner">
+                <p>To-Go Supplies</p>
+                <span>Coffee cup, stirrers straws and etc.</span>
+              </div>
+            </div>
+            <div class="back">
+              <div class="inner">
+                <p>Stock up on items like napkins, cups, lids, and stirrers.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    --></div>
   </div>
 </div>

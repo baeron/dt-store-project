@@ -1,13 +1,69 @@
-<div style="margin-top: 100px">
-  <p>You have {{ shoppingCartItems.length }} items in your bag</p>
-  <div *ngFor="let item of shoppingCartItems">
-    <div>
-      <div>{{ item.name }}</div>
-      <div>{{ item.price }}</div>
-      <div>{{ item.categoryName }}</div>
+<div
+  class="banner"
+  [style.backgroundImage]="'url(../../../../assets/header/header-small-bg.png)'"
+></div>
+<div>
+  <div *ngIf="(shoppingCartItems$ | async) as cart; else loading">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category name</th>
+            <th scope="col">Product name</th>
+            <th scope="col">Product price</th>
+            <th scope="col">Product price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of (shoppingCartItems$ | async); index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ item.categoryName }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td>
+              <button class="remove-item" (click)="removeItem(item)">
+                Remove
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-    <button class="remove-item" (click)="removeItem(item)">Remove</button>
+    <div>Total: {{ getTotal() | async }}</div>
   </div>
-  <p>Total: {{ getTotal() | async }}</p>
+  <ng-template #loading> Loading data </ng-template>
 </div>
+<!--
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category name</th>
+            <th scope="col">Product name</th>
+            <th scope="col">Product price</th>
+            <th scope="col">Product price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of (shoppingCartItems$ | async); index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ item.categoryName }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td>
+              <button class="remove-item" (click)="removeItem(item)">
+                Remove
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  -->
+<!--
+  <div class="row">
+    <p>Total: {{ getTotal() | async }}</p>
+  </div>
+-->

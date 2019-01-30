@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { SafeStyle, DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: "app-item-category",
@@ -6,9 +7,13 @@ import { Component, OnInit, Input } from "@angular/core";
   styleUrls: ["./item-category.component.scss"]
 })
 export class ItemCategoryComponent implements OnInit {
-  @Input() item_category: any;
+  public backgroundImg: SafeStyle;
+  @Input() category: any;
+  constructor(private sanitizer: DomSanitizer) {}
 
-  constructor() {}
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(
+      "url(' + this.category.backgroundImage + ')"
+    );
+  }
 }
