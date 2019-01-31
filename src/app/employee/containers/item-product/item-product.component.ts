@@ -21,7 +21,6 @@ export class ItemProductComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    debugger;
     this.productId = this.route.snapshot.params["productId"];
     this.getProduct(this.productId);
   }
@@ -35,8 +34,6 @@ export class ItemProductComponent implements OnInit {
   onSubmit() {
     this.productService.updateProductById(this.product).subscribe(res => {
       this.tmp = res;
-      debugger;
-      console.log(this.tmp);
     });
   }
 }

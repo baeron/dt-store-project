@@ -26,8 +26,6 @@ export class AdminPanelComponent implements OnInit {
   getSales() {
     this.salesService.getAllSales().subscribe(salesList => {
       this.sales = salesList;
-      debugger;
-      console.log(this.sales);
     });
   }
 }

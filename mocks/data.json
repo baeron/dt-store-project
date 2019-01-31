@@ -7,12 +7,18 @@
       "backgroundImage": "https://cdnimg.webstaurantstore.com/uploads/seo_category/2016/4/hot_beverage_equipment.jpg",
       "products": [
         {
-          "id": 11,
-          "name": "first-first"
+          "categoryName": "first",
+          "categoryId": 1,
+          "id": 1,
+          "name": "first-first-last",
+          "price": 11.11
         },
         {
-          "id": 12,
-          "name": "first-second"
+          "categoryName": "first",
+          "categoryId": 1,
+          "id": 2,
+          "name": "first-second",
+          "price": 12.12
         }
       ],
       "id": 1
@@ -23,8 +29,14 @@
       "categoryDescroption": "Expand your drink menu using these hot beverages and mixes.",
       "backgroundImage": "https://cdnimg.webstaurantstore.com/uploads/seo_category/2016/4/cold_beverages_and_beverage_mixes.jpg)",
       "products": [
-        { "id": 11, "name": "second-first" },
-        { "id": 12, "name": "second-second" }
+        {
+          "id": 11,
+          "name": "second-first"
+        },
+        {
+          "id": 12,
+          "name": "second-second"
+        }
       ],
       "id": 2
     },
@@ -67,14 +79,15 @@
     {
       "categoryName": "first",
       "categoryId": 1,
-      "id": 11,
+      "id": 1,
       "name": "first-first-last",
-      "price": 11.11
+      "price": 11.11,
+      "description": "The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance"
     },
     {
       "categoryName": "first",
       "categoryId": 1,
-      "id": 12,
+      "id": 2,
       "name": "first-second",
       "price": 12.12
     }
@@ -167,7 +180,7 @@
       "userId": 221,
       "userEmail": "user1@user.com",
       "orderId": 999,
-      "status": "fulfilled",
+      "status": "pending",
       "totalPrice": 23.23,
       "totalItems": 2,
       "userOrders": [
@@ -176,16 +189,14 @@
           "categoryId": 1,
           "id": 11,
           "name": "first-first",
-          "price": 11.11,
-          "dateSale": "2012/04/30 10:14:23"
+          "price": 11.11
         },
         {
           "categoryName": "second",
           "categoryId": 2,
           "id": 12,
           "name": "first-second",
-          "price": 12.12,
-          "dateSale": "2012/04/30 10:14:23"
+          "price": 12.12
         }
       ]
     },
@@ -203,16 +214,39 @@
           "categoryId": 1,
           "id": 11,
           "name": "first-first",
-          "price": 11.11,
-          "dateSale": "2012/04/30 10:14:23"
+          "price": 11.11
         },
         {
           "categoryName": "second",
           "categoryId": 2,
           "id": 12,
           "name": "first-second",
-          "price": 12.12,
-          "dateSale": "2012/04/30 10:14:23"
+          "price": 12.12
+        }
+      ]
+    },
+    {
+      "id": 777,
+      "userId": 777,
+      "userEmail": "user777@user.com",
+      "orderId": 777,
+      "status": "fulfilled",
+      "totalPrice": 77.77,
+      "totalItems": 2,
+      "userOrders": [
+        {
+          "categoryName": "first",
+          "categoryId": 1,
+          "id": 11,
+          "name": "first-first",
+          "price": 11.11
+        },
+        {
+          "categoryName": "second",
+          "categoryId": 2,
+          "id": 12,
+          "name": "first-second",
+          "price": 12.12
         }
       ]
     }

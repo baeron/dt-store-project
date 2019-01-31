@@ -26,7 +26,6 @@ export class RoleGuardService {
       return true;
     }
 
-    // navigate to not found page
     this._router.navigate(["/"]);
     return false;
   }

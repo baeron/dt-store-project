@@ -18,6 +18,11 @@ export class AuthGuardService {
     private router: Router
   ) {}
 
+  /**
+   *
+   * @param next
+   * @param state
+   */
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -26,12 +31,13 @@ export class AuthGuardService {
       return true;
     }
 
-    // navigate to login page
     this.router.navigate(["/sign-up"]);
-    // you can save redirect url so after authing we can move them back to the page they requested
     return false;
   }
 
+  /**
+   * Method to send user to login page
+   */
   redirectToLoginPage() {
     this.router.navigate(["/sign-in"]);
   }

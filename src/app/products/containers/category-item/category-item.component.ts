@@ -1,4 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { CategoryService } from "../../services/category.service";
+import { ActivatedRoute } from "@angular/router";
+import { Observable } from "rxjs";
+// import Category from "../../models/category";
+import Category from "../../../models/category.model";
 
 @Component({
   selector: "app-category-item",
@@ -6,26 +11,22 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./category-item.component.scss"]
 })
 export class CategoryItemComponent implements OnInit {
-  categoryData: any;
+  categoryData$: Observable<Category>;
+  categoryId: string;
 
-  constructor() {}
+  constructor(
+    private categoryService: CategoryService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.categoryData = [
-      {
-        categoryId: 1,
-        categoryName: "First",
-        productId: 11,
-        productName: "FirstProduct",
-        productPrice: 11.11
-      },
-      {
-        categoryId: 1,
-        categoryName: "First",
-        productId: 12,
-        productName: "SecondProduct",
-        productPrice: 12.12
-      }
-    ];
+    this.categoryId = this.route.snapshot.params["categoryId"];
+    this.getCategoryDataById(this.categoryId);
+  }
+
+  getCategoryDataById(id: string) {
+    this.categoryService.getCategoryById(id).subscribe(categoryElements => {
+      this.categoryData$ = categoryElements;
+    });
   }
 }

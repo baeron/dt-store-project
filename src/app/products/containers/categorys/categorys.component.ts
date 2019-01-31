@@ -15,10 +15,6 @@ export class CategorysComponent implements OnInit {
   constructor(private categoriesService: CategoryService) {}
 
   ngOnInit() {
-    /*
-    this.test =
-      "https://cdnimg.webstaurantstore.com/uploads/seo_category/2016/4/hot_beverage_equipment.jpg";
-    */
     this.categoriesService.getCategories().subscribe(cateroryList => {
       this.categories = cateroryList;
     });

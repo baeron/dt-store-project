@@ -37,8 +37,6 @@ export class ItemOrderComponent implements OnInit {
       .putFulfilledStatusForItemOrder(this.order)
       .subscribe(res => {
         this.tmp = res;
-        debugger;
-        console.log(this.tmp);
       });
   }
 }

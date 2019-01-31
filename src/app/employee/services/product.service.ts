@@ -24,7 +24,6 @@ export class ProductService {
 
   // FIXME: change type any to different tipe like as ORDERS
   getProductById(productId: string): Observable<any> {
-    debugger;
     return this.http.get(PRODUCTS + productId).pipe(
       tap(_ => console.log("fetched product by Id")),
       catchError(this.handleError("getItemProduct", []))
@@ -33,7 +32,6 @@ export class ProductService {
 
   // FIXME: change type any to different tipe like as ORDERS
   updateProductById(order) {
-    debugger;
     const url = PRODUCTS + order.id;
     return this.http.put(url, order).pipe(
       tap(_ => console.log("update item product")),
@@ -43,11 +41,8 @@ export class ProductService {
 
   private handleError<T>(operation = "operation", result?: T) {
     return (error: any): Observable<T> => {
-      // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-      // TODO: better job of transforming error for user consumption
       console.log(`${operation} failed: ${error.message}`);
-      // Let the app keep running by returning an empty result.
       return of(result as T);
     };
   }

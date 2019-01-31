@@ -104,22 +104,18 @@
           </picture>
         </div>
       </div>
-      <div class="col-12 col md-8">
+      <div class="col-12 col md-8" *ngIf="product">
         <div class="product-description">
-          <span>Headphones</span>
-          <h1>Beats EP</h1>
-          <p>
-            The preferred choice of a vast range of acclaimed DJs. Punchy,
-            bass-focused sound and high isolation. Sturdy headband and on-ear
-            cushions suitable for live performance
-          </p>
+          <span>{{ product.categoryName }}</span>
+          <h1>{{ product.name }}</h1>
+          <p>{{ product.description }}</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center" *ngIf="product">
     <div class="product-price">
-      <span>148$</span>
+      <span>{{ product.price | currency }}</span>
       <a class="cart-btn" (click)="addToCart(product)">Add to cart</a>
     </div>
   </div>

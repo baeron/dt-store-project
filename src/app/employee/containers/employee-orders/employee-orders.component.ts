@@ -24,7 +24,6 @@ export class EmployeeOrdersComponent implements OnInit {
 
   // FIXME: check right route by ID
   goToItemOrder(orderId) {
-    debugger;
     this.router.navigate(["/orders", orderId]);
   }
 }

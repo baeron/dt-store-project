@@ -1,7 +1,7 @@
 import { CartService } from "./../../../products/services/cart.service";
 import { Observable, of } from "rxjs";
 import { Component, OnInit } from "@angular/core";
-import { Product } from "src/app/products/models/product.model";
+import Product from "../../../models/product.model";
 
 @Component({
   selector: "app-shopping-cart",
@@ -25,7 +25,16 @@ export class ShoppingCartComponent implements OnInit {
     return this.cartService.getTotalAmmount();
   }
 
-  removeItem(item: Product) {
-    this.cartService.removeFromCart(item);
+  onRemoveItem(itemBought: Product) {
+    this.cartService.removeFromCart(itemBought);
+  }
+
+  buyAll() {
+    console.log(this.shoppingCartItems$);
+    debugger;
+    this.cartService.createNewOrder(this.shoppingCartItems$).subscribe(data => {
+      debugger;
+      console.log(data);
+    });
   }
 }

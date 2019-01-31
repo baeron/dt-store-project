@@ -2,7 +2,7 @@ import { Observable } from "rxjs";
 import { ActivatedRoute } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { CategoryService } from "./../../services/category.service";
-import { Product } from "../../models/product.model";
+import Product from "../../../models/product.model";
 import { CartService } from "../../services/cart.service";
 
 @Component({
@@ -11,9 +11,8 @@ import { CartService } from "../../services/cart.service";
   styleUrls: ["./product.component.scss"]
 })
 export class ProductComponent implements OnInit {
-  public product: Product = {};
+  product: Product;
   productId: string;
-  //
   productImg: string;
 
   constructor(

@@ -1,12 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-
 import { Observable, pipe, of } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
-import { Category } from "../models/category";
-import { Product } from "../models/product.model";
+import Category from "../../models/category.model";
+import Product from "../../models/product.model";
 
-const CATEGORY = "http://localhost:3000/categories";
+const CATEGORY = "http://localhost:3000/categories/";
 const ITEM_PRODUCT = " http://localhost:3000/products/";
 
 @Injectable({
@@ -22,6 +21,13 @@ export class CategoryService {
     );
   }
 
+  getCategoryById(categoryId: string): Observable<any> {
+    return this.http.get(CATEGORY + categoryId).pipe(
+      tap(_ => console.log("fetch data from category by ID")),
+      catchError(this.handleError("getCategoryById"))
+    );
+  }
+
   getProductById(id: string): Observable<Product> {
     const str = ITEM_PRODUCT + id;
     console.log(str);
@@ -33,11 +39,8 @@ export class CategoryService {
 
   private handleError<T>(operation = "operation", result?: T) {
     return (error: any): Observable<T> => {
-      // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-      // TODO: better job of transforming error for user consumption
       console.log(`${operation} failed: ${error.message}`);
-      // Let the app keep running by returning an empty result.
       return of(result as T);
     };
   }

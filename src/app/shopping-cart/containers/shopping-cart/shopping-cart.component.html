@@ -16,54 +16,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of (shoppingCartItems$ | async); index as i">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{ item.categoryName }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.price }}</td>
-            <td>
-              <button class="remove-item" (click)="removeItem(item)">
-                Remove
-              </button>
-            </td>
-          </tr>
+          <ng-container *ngFor="let itemBought of cart; index as i">
+            <app-item-bought
+              [boughtItem]="itemBought"
+              [index]="i"
+              (removeItem)="onRemoveItem($event)"
+            ></app-item-bought>
+          </ng-container>
         </tbody>
       </table>
     </div>
     <div>Total: {{ getTotal() | async }}</div>
+    <div class="d-flex justify-content-end">
+      <button (click)="buyAll()">BUY ALL</button>
+    </div>
   </div>
   <ng-template #loading> Loading data </ng-template>
 </div>
-<!--
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Category name</th>
-            <th scope="col">Product name</th>
-            <th scope="col">Product price</th>
-            <th scope="col">Product price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of (shoppingCartItems$ | async); index as i">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{ item.categoryName }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.price }}</td>
-            <td>
-              <button class="remove-item" (click)="removeItem(item)">
-                Remove
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  -->
-<!--
-  <div class="row">
-    <p>Total: {{ getTotal() | async }}</p>
-  </div>
--->

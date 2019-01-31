@@ -5,9 +5,18 @@
       'url(../../../../assets/header/header-small-bg.png)'
     "
   ></div>
-  <div class="d-flex justify-content-around flex-wrap">
-    <div *ngFor="let product of categoryData">
-      <app-item-product [item_product]="product"></app-item-product>
+  <div *ngIf="categoryData$">
+    <div class="d-flex justify-content-center">
+      <h3>Category name is {{ categoryData$.categoryName }}</h3>
+    </div>
+    <div class="d-flex justify-content-around flex-wrap">
+      <div *ngFor="let product of categoryData$.products">
+        <a [routerLink]="['../product/' + product.id]">
+          <app-category-item-product
+            [itemProduct]="product"
+          ></app-category-item-product>
+        </a>
+      </div>
     </div>
   </div>
 </div>
