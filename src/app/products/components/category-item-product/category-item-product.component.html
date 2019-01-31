@@ -1,4 +1,20 @@
-<div>
-  <p>{{ itemProduct.name }}</p>
-  <p>{{ itemProduct.price }}</p>
+<div class="col" ontouchstart="this.classList.toggle('hover');">
+  <div class="container">
+    <a [routerLink]="[BASE_PATH, itemProduct.id]">
+      <div
+        class="front"
+        [style.backgroundImage]="'url(' + itemProduct.backgroundImage + ')'"
+      >
+        <div class="inner">
+          <p>{{ itemProduct.name }}</p>
+          <span>{{ itemProduct.price | currency }}</span>
+        </div>
+      </div>
+      <div class="back">
+        <div class="inner">
+          <p>{{ itemProduct.shortDescription }}</p>
+        </div>
+      </div>
+    </a>
+  </div>
 </div>

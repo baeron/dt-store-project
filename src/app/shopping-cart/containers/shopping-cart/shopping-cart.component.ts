@@ -30,11 +30,8 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   buyAll() {
-    console.log(this.shoppingCartItems$);
-    debugger;
-    this.cartService.createNewOrder(this.shoppingCartItems$).subscribe(data => {
-      debugger;
-      console.log(data);
-    });
+    this.cartService
+      .createNewOrder(this.shoppingCartItems$)
+      .subscribe(data => {});
   }
 }

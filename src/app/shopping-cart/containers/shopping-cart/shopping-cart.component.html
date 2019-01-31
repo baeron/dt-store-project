@@ -16,6 +16,14 @@
           </tr>
         </thead>
         <tbody>
+          <tr *ngFor="let itemBought of cart; index as i">
+            <th scope="row">{{ index + 1 }}</th>
+            <td>{{ itemBought.categoryName }}</td>
+            <td>{{ itemBought.name }}</td>
+            <td>{{ itemBought.price }}</td>
+            <td><button (click)="onRemoveItem(itemBought)">Remove</button></td>
+          </tr>
+          <!--
           <ng-container *ngFor="let itemBought of cart; index as i">
             <app-item-bought
               [boughtItem]="itemBought"
@@ -23,7 +31,7 @@
               (removeItem)="onRemoveItem($event)"
             ></app-item-bought>
           </ng-container>
-        </tbody>
+        --></tbody>
       </table>
     </div>
     <div>Total: {{ getTotal() | async }}</div>

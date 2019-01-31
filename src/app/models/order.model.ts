@@ -1,6 +1,6 @@
 import Product from "./product.model";
 
-enum Status {
+export enum Status {
   Fulfilled = "fulfilled",
   Pending = "pending"
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../services/product.service";
 import { Router, ActivatedRoute } from "@angular/router";
 
+import Product from "../../../models/product.model";
 @Component({
   selector: "app-item-product",
   templateUrl: "./item-product.component.html",
@@ -9,10 +10,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class ItemProductComponent implements OnInit {
   productId: string;
-  // FIXME: change to cast TYPE
-  product: any;
-  //
-  tmp: any;
+  product: Product;
 
   constructor(
     private productService: ProductService,
@@ -32,8 +30,6 @@ export class ItemProductComponent implements OnInit {
   }
 
   onSubmit() {
-    this.productService.updateProductById(this.product).subscribe(res => {
-      this.tmp = res;
-    });
+    this.productService.updateProductById(this.product).subscribe();
   }
 }

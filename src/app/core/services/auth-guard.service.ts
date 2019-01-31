@@ -35,9 +35,6 @@ export class AuthGuardService {
     return false;
   }
 
-  /**
-   * Method to send user to login page
-   */
   redirectToLoginPage() {
     this.router.navigate(["/sign-in"]);
   }

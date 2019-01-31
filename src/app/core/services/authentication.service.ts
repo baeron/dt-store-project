@@ -5,6 +5,8 @@ import { Observable, of, throwError } from "rxjs";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import decode from "jwt-decode";
 
+const registerUrl = "http://localhost:3000/users/";
+
 @Injectable({
   providedIn: "root"
 })
@@ -23,13 +25,31 @@ export class AuthenticationService {
   constructor(private router: Router, private http: HttpClient) {}
 
   registerUser(user): Observable<any> {
-    const registerUrl = "http://localhost:3000/users";
     return this.http.post(registerUrl, user).pipe(catchError(this.handleError));
+  }
+
+  updateUser(userData, userId) {
+    const url = registerUrl + userId;
+    return this.http.put(url, userData).pipe(
+      tap(_ => console.log("update item order")),
+      catchError(this.handleError)
+    );
+  }
+
+  getUserById(id) {
+    const USER_BY_ID = registerUrl + id;
+    return this.http.get(USER_BY_ID).pipe(catchError(this.handleError));
   }
 
   authenticateUser(user): Observable<any> {
     const authenticateUrl = "http://localhost:3000/users";
     if (user.userEmail === "user@user.com" && user.userPass === "user123") {
+      // tslint:disable-next-line:max-line-length
+      localStorage.setItem(
+        "token", // tslint:disable-next-line:max-line-length
+        `userToken`
+      );
+
       // FIXME: change when we will have real backend
       return this.http.get(authenticateUrl + "/222").pipe(
         tap(_ => console.log("fetched user data")),
@@ -84,7 +104,7 @@ export class AuthenticationService {
 
   logout(): void {
     this.clear();
-    this.router.navigate(["/login"]);
+    this.router.navigate(["/sign-in"]);
   }
 
   clear(): void {

@@ -12,11 +12,6 @@ import { AuthGuardService } from "./services/auth-guard.service";
 const CORE_ROUTERS: Routes = [
   {
     path: "",
-    redirectTo: "home",
-    pathMatch: "full"
-  },
-  {
-    path: "home",
     component: fromContainers.HomeComponent
   },
   {
@@ -39,7 +34,7 @@ const CORE_ROUTERS: Routes = [
   },
   {
     path: "profile",
-    canActivate: [],
+    canActivate: [AuthGuardService],
     component: fromContainers.ProfileComponent
   },
   {
@@ -49,6 +44,14 @@ const CORE_ROUTERS: Routes = [
   {
     path: "shoping_cart",
     loadChildren: "../shopping-cart/shopping-cart.module#ShoppingCartModule"
+  },
+  {
+    path: "404",
+    component: fromContainers.NotFoundComponent
+  },
+  {
+    path: "**",
+    redirectTo: "/404"
   }
 ];
 

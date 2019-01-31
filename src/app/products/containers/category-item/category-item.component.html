@@ -9,13 +9,13 @@
     <div class="d-flex justify-content-center">
       <h3>Category name is {{ categoryData$.categoryName }}</h3>
     </div>
-    <div class="d-flex justify-content-around flex-wrap">
-      <div *ngFor="let product of categoryData$.products">
-        <a [routerLink]="['../product/' + product.id]">
+    <div class="wrapper">
+      <div class="cols">
+        <div *ngFor="let product of categoryData$.products">
           <app-category-item-product
             [itemProduct]="product"
           ></app-category-item-product>
-        </a>
+        </div>
       </div>
     </div>
   </div>

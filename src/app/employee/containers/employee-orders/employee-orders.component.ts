@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { OrdersService } from "../../services/orders.service";
+import Order from "../../../models/order.model";
 
 @Component({
   selector: "app-employee-orders",
@@ -8,7 +9,7 @@ import { OrdersService } from "../../services/orders.service";
   styleUrls: ["./employee-orders.component.scss"]
 })
 export class EmployeeOrdersComponent implements OnInit {
-  public orders: any;
+  public orders: Order[];
 
   constructor(private orderService: OrdersService, private router: Router) {}
 
@@ -22,8 +23,7 @@ export class EmployeeOrdersComponent implements OnInit {
     });
   }
 
-  // FIXME: check right route by ID
-  goToItemOrder(orderId) {
-    this.router.navigate(["/orders", orderId]);
+  goToItemOrder(orderId: number) {
+    this.router.navigate(["employee/orders", orderId]);
   }
 }

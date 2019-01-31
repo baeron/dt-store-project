@@ -2,14 +2,15 @@ import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../services/product.service";
 import { Router } from "@angular/router";
 
+import Product from "../../../models/product.model";
+
 @Component({
   selector: "app-product-list",
   templateUrl: "./product-list.component.html",
   styleUrls: ["./product-list.component.scss"]
 })
 export class ProductListComponent implements OnInit {
-  // FIXME: Change any to custom TYPE
-  public products: any;
+  public products: Product[];
 
   constructor(private productService: ProductService, private router: Router) {}
 
@@ -23,7 +24,7 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  goToItemProduct(itemProduct) {
-    // go to item product
+  goToItemProduct(itemProduct: string) {
+    this.router.navigate(["employee/products", itemProduct]);
   }
 }

@@ -38,11 +38,6 @@ export class CartService {
   }
 
   createNewOrder(shopingCart): Observable<any> {
-    /*
-    debugger;
-    const newShopCart = shopingCart.value;
-    console.log(shopingCart);
-    */
     const shopCart = {
       id: 777,
       userId: 777,
@@ -68,8 +63,6 @@ export class CartService {
         }
       ]
     };
-    debugger;
-    console.log(shopCart);
     return this.http
       .post("http://localhost:3000/orders", shopCart)
       .pipe(catchError(this.handleError("createNewOrder")));

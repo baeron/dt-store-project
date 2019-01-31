@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { OrdersService } from "../../services/orders.service";
+import { Status } from "../../../models/order.model";
+import Order from "../../../models/order.model";
 
 @Component({
   selector: "app-item-order",
@@ -9,14 +11,10 @@ import { OrdersService } from "../../services/orders.service";
 })
 export class ItemOrderComponent implements OnInit {
   orderId: string;
-  // FIXME: change type ANY to custom type
-  order: any;
-  //
-  tmp: any;
+  order: Order;
 
   constructor(
     private orderService: OrdersService,
-    private router: Router,
     private route: ActivatedRoute
   ) {}
 
@@ -32,11 +30,7 @@ export class ItemOrderComponent implements OnInit {
   }
 
   isOrderComplete() {
-    this.order.status = "fulfilled";
-    this.orderService
-      .putFulfilledStatusForItemOrder(this.order)
-      .subscribe(res => {
-        this.tmp = res;
-      });
+    this.order.status = Status.Fulfilled;
+    this.orderService.putFulfilledStatusForItemOrder(this.order).subscribe();
   }
 }

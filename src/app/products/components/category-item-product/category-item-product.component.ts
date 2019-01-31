@@ -7,5 +7,6 @@ import Product from "../../../models/product.model";
   styleUrls: ["./category-item-product.component.scss"]
 })
 export class CategoryItemProductComponent {
+  BASE_PATH = "/product_list/category/product/";
   @Input() itemProduct: Product;
 }

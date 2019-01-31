@@ -1,3 +1,4 @@
+import { AuthenticationService } from "./../../services/authentication.service";
 import { Component, OnInit, Input } from "@angular/core";
 import NavigationTab from "../../../models/tab.model";
 import { Observable } from "rxjs";
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
 
   companiIcon: string;
   isStaticTabsShow = true;
-  isAuthTabShow = true;
+  isAuthTabShow = false;
+  isEmployee = false;
   isRegisterTabShow = true;
 
   staticTabs: NavigationTab[] = [
@@ -29,11 +31,25 @@ export class HeaderComponent implements OnInit {
     url: "/shoping_cart"
   };
 
-  constructor(private cartService: CartService) {}
+  profileTab: NavigationTab = { name: "Profile", url: "/profile" };
+
+  constructor(
+    private cartService: CartService,
+    private auth: AuthenticationService
+  ) {}
 
   ngOnInit() {
     this.companiIcon = "../../assets/nav/logo.png";
     this.shoppingCartItems$ = this.cartService.getItems();
     this.shoppingCartItems$.subscribe(_ => _);
+  }
+
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngDoCheck() {
+    this.isAuthTabShow = this.auth.isAuthenticated();
+  }
+
+  userLogout() {
+    this.auth.logout();
   }
 }

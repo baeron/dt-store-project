@@ -30,21 +30,41 @@
               {{ staticTab.name }}
             </a>
           </li>
-          <li class="nav-item" *ngIf="isAuthTabShow">
-            <a class="nav-link" [routerLink]="[authTab.url]">
-              {{ authTab.name }}
-            </a>
-          </li>
-          <li class="nav-item" *ngIf="isProfileShow">
-            <a class="nav-link" [routerLink]="[profileTab.url]">
-              {{ profileTab.name }}
-            </a>
-          </li>
-          <li class="nav-item" *ngIf="isRegisterTabShow">
-            <a class="nav-link" [routerLink]="[registerTab.url]">
-              {{ registerTab.name }}
-            </a>
-          </li>
+          <ng-template [ngIf]="!isAuthTabShow">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="[authTab.url]">
+                {{ authTab.name }}
+              </a>
+            </li>
+          </ng-template>
+          <ng-template [ngIf]="!isAuthTabShow">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="[registerTab.url]">
+                {{ registerTab.name }}
+              </a>
+            </li>
+          </ng-template>
+          <ng-template [ngIf]="isAuthTabShow">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="[profileTab.url]">
+                {{ profileTab.name }}
+              </a>
+            </li>
+          </ng-template>
+
+          <ng-template [ngIf]="isEmployee">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="[profileTab.url]">
+                {{ profileTab.name }}
+              </a>
+            </li>
+          </ng-template>
+
+          <ng-template [ngIf]="isAuthTabShow">
+            <li class="nav-item">
+              <a class="nav-link" (click)="userLogout()"> Logout </a>
+            </li>
+          </ng-template>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="[shoppingCartTab.url]">
               {{ shoppingCartTab.name }}

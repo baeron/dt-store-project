@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CategoryService } from "../../services/category.service";
+import Category from "../../../models/category.model";
 
 @Component({
   selector: "app-categorys",
@@ -7,10 +8,7 @@ import { CategoryService } from "../../services/category.service";
   styleUrls: ["./categorys.component.scss"]
 })
 export class CategorysComponent implements OnInit {
-  // FIXME: cast it to type
-  categories: any;
-  //
-  test: string;
+  categories: Category[];
 
   constructor(private categoriesService: CategoryService) {}
 

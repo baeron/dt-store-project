@@ -1,12 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import {
-  FormGroup,
-  FormBuilder,
-  FormControl,
-  Validators
-} from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AuthenticationService } from "../../services/authentication.service";
+
+import User from "../../../models/user.model";
 
 @Component({
   selector: "app-sign-in",
@@ -16,12 +13,11 @@ import { AuthenticationService } from "../../services/authentication.service";
 export class SignInComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
-  userData: any;
+  userData: User;
   error: any;
 
   constructor(
     private router: Router,
-    private logInFormBuilder: FormBuilder,
     private authService: AuthenticationService
   ) {}
 

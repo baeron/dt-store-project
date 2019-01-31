@@ -8,7 +8,7 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class ItemProductComponent implements OnInit {
   @Input() item_product: any;
-  categoryId: any;
+  categoryId: string;
 
   constructor(private route: ActivatedRoute) {}
 

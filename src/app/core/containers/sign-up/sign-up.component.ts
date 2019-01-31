@@ -9,6 +9,8 @@ import {
 import { AuthenticationService } from "../../services/authentication.service";
 import { Router } from "@angular/router";
 
+import User from "../../../models/user.model";
+
 @Component({
   selector: "app-sign-up",
   templateUrl: "./sign-up.component.html",
@@ -17,7 +19,7 @@ import { Router } from "@angular/router";
 export class SignUpComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
-  data: any;
+  data: User;
   error: any;
 
   constructor(
