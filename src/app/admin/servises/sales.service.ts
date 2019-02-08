@@ -3,7 +3,8 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { tap, catchError } from "rxjs/operators";
 
-const SALES_LINK = "http://localhost:3000/sales";
+const SALES_LINK = "http://localhost:3001/api/shopping-cart/sold";
+// "/api/shopping-cart/sold";
 
 @Injectable({
   providedIn: "root"
@@ -11,10 +12,10 @@ const SALES_LINK = "http://localhost:3000/sales";
 export class SalesService {
   constructor(private http: HttpClient) {}
 
-  getAllSales(): Observable<any> {
+  getAllSold(): Observable<any> {
     return this.http.get<any>(SALES_LINK).pipe(
-      tap(_ => console.log("get all sales")),
-      catchError(this.handleError("getAllSales", []))
+      tap(_ => console.log("get all sold")),
+      catchError(this.handleError("getAllSold", []))
     );
   }
 

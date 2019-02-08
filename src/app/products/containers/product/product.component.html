@@ -85,28 +85,28 @@
       'url(../../../../assets/header/header-small-bg.png)'
     "
   ></div>
-  <div class="container">
+  <div class="container" *ngIf="product">
     <div class="row">
       <div class="col-12 col-md-4">
-        <div *ngIf="productImg">
+        <div>
           <picture>
-            <source media="(min-width: 1200px)" [srcset]="productImg" />
-            <source media="(min-width: 992px)" [srcset]="productImg" />
-            <source media="(min-width: 768px)" [srcset]="productImg" />
-            <source media="(min-width: 576px)" [srcset]="productImg" />
-            <source [srcset]="productImg" />
+            <source media="(min-width: 1200px)" [srcset]="product.image" />
+            <source media="(min-width: 992px)" [srcset]="product.image" />
+            <source media="(min-width: 768px)" [srcset]="product.image" />
+            <source media="(min-width: 576px)" [srcset]="product.image" />
+            <source [srcset]="product.image" />
             <img
               class="d-block img-fluid"
-              [src]="productImg"
+              [src]="product.image"
               alt="second_img"
               sr-only="Second Image"
             />
           </picture>
         </div>
       </div>
-      <div class="col-12 col md-8" *ngIf="product">
+      <div class="col-12 col md-8">
         <div class="product-description">
-          <span>{{ product.categoryName }}</span>
+          <span>{{ product.category.categoruName }}</span>
           <h1>{{ product.name }}</h1>
           <p>{{ product.description }}</p>
         </div>

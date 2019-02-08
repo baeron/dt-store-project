@@ -48,8 +48,8 @@
         </thead>
         <tbody>
           <!-- FIXME: add ASYNK PIPE in the end -->
-          <tr *ngFor="let itemOrder of order.userOrders; index as i">
-            <th scope="row">{{ i + 1 }}</th>
+          <tr *ngFor="let itemOrder of order.products; index as i">
+            <th scope="row"></th>
             <td>{{ itemOrder.categoryName }}</td>
             <td>{{ itemOrder.name }}</td>
             <td>{{ itemOrder.price }}</td>

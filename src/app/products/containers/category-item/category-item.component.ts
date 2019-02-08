@@ -26,6 +26,7 @@ export class CategoryItemComponent implements OnInit {
 
   getCategoryDataById(id: string) {
     this.categoryService.getCategoryById(id).subscribe(categoryElements => {
+      console.log(categoryElements);
       this.categoryData$ = categoryElements;
     });
   }

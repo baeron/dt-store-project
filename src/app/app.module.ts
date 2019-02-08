@@ -8,6 +8,8 @@ import { CoreModule } from "./core/core.module";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
+import { FlashMessagesModule } from "angular2-flash-messages";
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -16,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     CoreModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlashMessagesModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import Product from "./product.model";
 
 export default interface Category {
-  id: number;
+  id?: number;
   backgroundImage: string;
   categoryDescroption: string;
   categoryName: string;

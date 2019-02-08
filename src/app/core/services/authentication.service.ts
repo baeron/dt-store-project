@@ -45,10 +45,8 @@ export class AuthenticationService {
     const authenticateUrl = "http://localhost:3000/users";
     if (user.userEmail === "user@user.com" && user.userPass === "user123") {
       // tslint:disable-next-line:max-line-length
-      localStorage.setItem(
-        "token", // tslint:disable-next-line:max-line-length
-        `userToken`
-      );
+      localStorage.setItem("token", `userToken`);
+      localStorage.setItem("dt-shop-user-email", `${user.userEmail}`);
 
       // FIXME: change when we will have real backend
       return this.http.get(authenticateUrl + "/222").pipe(

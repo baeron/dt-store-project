@@ -4,6 +4,9 @@
 ></div>
 <div>
   <div *ngIf="(shoppingCartItems$ | async) as cart; else loading">
+    <div *ngIf="!userEmail">
+      <h5>You are not authorize. Please Sign In or Sign Up</h5>
+    </div>
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
@@ -17,7 +20,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let itemBought of cart; index as i">
-            <th scope="row">{{ index + 1 }}</th>
+            <th scope="row">{{ i + 1 }}</th>
             <td>{{ itemBought.categoryName }}</td>
             <td>{{ itemBought.name }}</td>
             <td>{{ itemBought.price }}</td>
@@ -36,7 +39,7 @@
     </div>
     <div>Total: {{ getTotal() | async }}</div>
     <div class="d-flex justify-content-end">
-      <button (click)="buyAll()">BUY ALL</button>
+      <button (click)="buyAll()" [disabled]="!userEmail">BUY ALL</button>
     </div>
   </div>
   <ng-template #loading> Loading data </ng-template>

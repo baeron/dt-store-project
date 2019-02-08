@@ -5,8 +5,9 @@ import { catchError, tap } from "rxjs/operators";
 import Category from "../../models/category.model";
 import Product from "../../models/product.model";
 
-const CATEGORY = "http://localhost:3000/categories/";
-const ITEM_PRODUCT = " http://localhost:3000/products/";
+const CATEGORY = "http://localhost:3001/api/categories/";
+const PRODUCTS_BY_CATEGORY = "http://localhost:3001/api/products/category/";
+const ITEM_PRODUCT = " http://localhost:3001/api/products/";
 
 @Injectable({
   providedIn: "root"
@@ -22,16 +23,16 @@ export class CategoryService {
   }
 
   getCategoryById(categoryId: string): Observable<any> {
-    return this.http.get(CATEGORY + categoryId).pipe(
+    return this.http.get(PRODUCTS_BY_CATEGORY + categoryId).pipe(
       tap(_ => console.log("fetch data from category by ID")),
       catchError(this.handleError("getCategoryById"))
     );
   }
 
-  getProductById(id: string): Observable<Product> {
+  getProductById(id: string): Observable<any> {
     const str = ITEM_PRODUCT + id;
     console.log(str);
-    return this.http.get<Product>(ITEM_PRODUCT + id).pipe(
+    return this.http.get<any>(ITEM_PRODUCT + id).pipe(
       tap(_ => console.log("fetch item product")),
       catchError(this.handleError("getProductById"))
     );

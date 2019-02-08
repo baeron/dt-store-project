@@ -6,7 +6,7 @@ import { tap, catchError } from "rxjs/operators";
 
 import Product from "../../models/product.model";
 
-const PRODUCTS = "http://localhost:3000/products/";
+const PRODUCTS = "http://localhost:3001/api/products/";
 
 @Injectable({
   providedIn: "root"

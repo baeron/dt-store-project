@@ -20,11 +20,14 @@ export class ProductListComponent implements OnInit {
 
   getProductList() {
     this.productService.getAllProducts().subscribe(productList => {
+      debugger;
+      console.log(productList);
       this.products = productList;
     });
   }
 
-  goToItemProduct(itemProduct: string) {
+  getItemProduct(itemProduct: string) {
+    debugger;
     this.router.navigate(["employee/products", itemProduct]);
   }
 }

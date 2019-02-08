@@ -4,7 +4,11 @@ import { BehaviorSubject, Observable, throwError, of } from "rxjs";
 import { map, catchError, tap } from "rxjs/operators";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 
-const SALES = "http://localhost:3000/orders";
+const SALES = "http://localhost:3001/api/shopping-carts";
+
+/*
+shopping-carts
+*/
 
 @Injectable({
   providedIn: "root"
@@ -27,6 +31,11 @@ export class CartService {
     return this.itemsInCartSubject;
   }
 
+  resetItems() {
+    this.itemsInCartSubject.next([]);
+    return this.itemsInCartSubject;
+  }
+
   getTotalAmmount(): Observable<number> {
     return this.itemsInCartSubject.pipe(
       map((items: Product[]) => {
@@ -37,7 +46,18 @@ export class CartService {
     );
   }
 
-  createNewOrder(shopingCart): Observable<any> {
+  postNewOrder(shoppingCart): Observable<any> {
+    const cart: any = {};
+    cart.products = shoppingCart.value;
+    cart.status = "pending";
+    return this.http.post(SALES, cart).pipe(
+      tap(_ => console.log("POST shoppingCart data")),
+      catchError(this.handleError("createNewOrder"))
+    );
+  }
+
+  /*
+  createNewOrder(shoppingCart): Observable<any> {
     const shopCart = {
       id: 777,
       userId: 777,
@@ -67,6 +87,7 @@ export class CartService {
       .post("http://localhost:3000/orders", shopCart)
       .pipe(catchError(this.handleError("createNewOrder")));
   }
+*/
 
   removeFromCart(item: Product) {
     const currentItems = [...this.itemsInCart];

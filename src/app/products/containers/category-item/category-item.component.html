@@ -7,11 +7,11 @@
   ></div>
   <div *ngIf="categoryData$">
     <div class="d-flex justify-content-center">
-      <h3>Category name is {{ categoryData$.categoryName }}</h3>
+      <h3>Category name is</h3>
     </div>
     <div class="wrapper">
       <div class="cols">
-        <div *ngFor="let product of categoryData$.products">
+        <div *ngFor="let product of categoryData$">
           <app-category-item-product
             [itemProduct]="product"
           ></app-category-item-product>

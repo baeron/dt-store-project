@@ -12,7 +12,9 @@
       <thead>
         <tr>
           <th scope="col">#</th>
+          <!--
           <th scope="col">User email</th>
+          -->
           <th scope="col">Total money spend</th>
           <th scope="col">Total product bougth</th>
         </tr>
@@ -20,9 +22,11 @@
       <tbody>
         <tr *ngFor="let itemSale of sales; index as i">
           <th scope="row">{{ i + 1 }}</th>
+          <!--
           <td>{{ itemSale.userEmail }}</td>
-          <td>{{ itemSale.shoppingCart.totalMoneySpend }}</td>
-          <td>{{ itemSale.shoppingCart.totalProductBougth }}</td>
+-->
+          <td>{{ itemSale.totalCardMoney }}</td>
+          <td>{{ itemSale.products.length }}</td>
         </tr>
       </tbody>
     </table>
@@ -33,8 +37,6 @@
       [data]="doughnutChartData"
       [labels]="doughnutChartLabels"
       [chartType]="doughnutChartType"
-      (chartHover)="chartHovered($event)"
-      (chartClick)="chartClicked($event)"
     ></canvas>
   </div>
 </div>

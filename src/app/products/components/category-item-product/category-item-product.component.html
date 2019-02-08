@@ -1,9 +1,9 @@
 <div class="col" ontouchstart="this.classList.toggle('hover');">
   <div class="container">
-    <a [routerLink]="[BASE_PATH, itemProduct.id]">
+    <a [routerLink]="[BASE_PATH, itemProduct._id]">
       <div
         class="front"
-        [style.backgroundImage]="'url(' + itemProduct.backgroundImage + ')'"
+        [style.backgroundImage]="'url(' + itemProduct.image + ')'"
       >
         <div class="inner">
           <p>{{ itemProduct.name }}</p>

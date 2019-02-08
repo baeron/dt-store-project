@@ -14,7 +14,7 @@ export class AdminPanelComponent implements OnInit {
     "In-Store Sales",
     "Mail-Order Sales"
   ];
-  public doughnutChartData: number[] = [350, 450, 100];
+  public doughnutChartData: number[] = [];
   public doughnutChartType = "doughnut";
 
   constructor(private salesService: SalesService) {}
@@ -24,8 +24,26 @@ export class AdminPanelComponent implements OnInit {
   }
 
   getSales() {
-    this.salesService.getAllSales().subscribe(salesList => {
+    this.salesService.getAllSold().subscribe(salesList => {
+      console.log(salesList);
       this.sales = salesList;
+      this.getDataFromDoughnutChar(salesList);
     });
   }
+
+  getDataFromDoughnutChar(sales) {
+    const saleList = sales;
+    let totalItemShoppingCartPrice: number;
+    for (let i = 0; i < saleList.length; ++i) {
+      const itemSalesEl = saleList[i].products;
+      totalItemShoppingCartPrice = 0;
+      for (const key of itemSalesEl) {
+        totalItemShoppingCartPrice += key.price;
+      }
+      this.sales[i].totalCardMoney = totalItemShoppingCartPrice;
+      this.doughnutChartData.push(totalItemShoppingCartPrice);
+    }
+  }
+
+  itemShoppingCardTotalPrice(itemSale) {}
 }

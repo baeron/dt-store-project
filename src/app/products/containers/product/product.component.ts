@@ -25,8 +25,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.getItemProduct(this.productId);
-    this.productImg =
-      "https://cdnimg.webstaurantstore.com/images/products/xxl/217037/949912.jpg";
+    // "https://cdnimg.webstaurantstore.com/images/products/xxl/217037/949912.jpg";
   }
 
   getItemProduct(Id: string) {

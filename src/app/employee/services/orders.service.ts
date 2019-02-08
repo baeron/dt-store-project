@@ -5,7 +5,7 @@ import { tap, catchError, map } from "rxjs/operators";
 import { watch } from "rxjs-watcher";
 
 // TODO: move to dev and prod environvent
-const ORDERS = " http://localhost:3000/orders/";
+const ORDERS = " http://localhost:3001/api/shopping-carts/";
 
 @Injectable({
   providedIn: "root"
@@ -16,10 +16,8 @@ export class OrdersService {
   // FIXME: change type any to different tipe like as ORDERS
   getOrders(): Observable<any> {
     return this.http.get(ORDERS).pipe(
-      watch("Interval (2000)", 10),
       tap(_ => console.log("fetched ORDERS")),
-      catchError(this.handleError("getOrders", [])),
-      watch("Filter odd numbers out", 10)
+      catchError(this.handleError("getOrders", []))
     );
   }
 
@@ -33,7 +31,7 @@ export class OrdersService {
 
   // FIXME: change this to item tipe OBSERVABLE
   putFulfilledStatusForItemOrder(order) {
-    const url = ORDERS + order.id;
+    const url = ORDERS + order._id;
     return this.http.put(url, order).pipe(
       tap(_ => console.log("update item order")),
       catchError(this.handleError("getOrderById"))
