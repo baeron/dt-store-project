@@ -5,7 +5,7 @@ import { Observable, of, throwError } from "rxjs";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import decode from "jwt-decode";
 
-const registerUrl = "http://localhost:3000/users/";
+const registerUrl = "http://localhost:3001/api/users/";
 
 @Injectable({
   providedIn: "root"
@@ -42,7 +42,7 @@ export class AuthenticationService {
   }
 
   authenticateUser(user): Observable<any> {
-    const authenticateUrl = "http://localhost:3000/users";
+    const authenticateUrl = "http://localhost:3001/api/users";
     if (user.userEmail === "user@user.com" && user.userPass === "user123") {
       // tslint:disable-next-line:max-line-length
       localStorage.setItem("token", `userToken`);

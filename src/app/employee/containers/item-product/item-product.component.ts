@@ -30,6 +30,9 @@ export class ItemProductComponent implements OnInit {
   }
 
   onSubmit() {
-    this.productService.updateProductById(this.product).subscribe();
+    this.productService.updateProductById(this.product).subscribe(data => {
+      debugger;
+      console.log(data);
+    });
   }
 }
